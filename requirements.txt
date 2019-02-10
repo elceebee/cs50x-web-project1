@@ -1,0 +1,8 @@
+Flask
+Flask-Session
+psycopg2
+SQLAlchemy
+sqlalchemy.orm 
+werkzeug.exceptions
+werkzeug.security
+functools

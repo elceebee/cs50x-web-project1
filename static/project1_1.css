@@ -1,0 +1,147 @@
+.maintext {
+  margin: 5px 20px 5px 20px;
+  padding: 10px;
+  color: #350320;
+}
+.maintext p {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14pt;
+}
+.maintext h1, .maintext h2 {
+  font-family: "Arial Black", Gadget, sans-serif;
+  color: #C80B78;
+}
+.maintext h1 {
+  font-size: 25pt;
+  font-style: bold;
+}
+.maintext h2 {
+  font-size: 16pt;
+}
+.maintext blockquote {
+  font-style: italic;
+}
+
+.navbar-default, .navbar-nav, .nav {
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 16pt;
+}
+
+.jumbotron h1 {
+  font-family: "Arial Black", Gadget, sans-serif;
+}
+.jumbotron p {
+  font-family: "Courier New", Courier, monospace;
+}
+.jumbotron .btn-primary {
+  font-family: "Courier New", Courier, monospace;
+  background-image: none;
+  background-color: #C80B78;
+  border-color: inherit;
+}
+
+.form-group {
+  border-collapse: collapse;
+  width: 90%;
+  border-radius: 15%;
+  font-family: "Courier New", Courier, monospace;
+}
+.form-group label {
+  font-size: 14pt;
+}
+.form-group button {
+  background-color: grey;
+  background-image: none;
+  border-color: inherit;
+}
+
+.thumbnail h3 {
+  color: #C80B78;
+  border-color: #f9c7e4;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  border-radius: 15%;
+  margin: 5px 20px 5px 20px;
+  padding: 10px;
+}
+table th {
+  border: 1px solid #f9c7e4;
+  text-align: left;
+  padding: 8px;
+  color: white;
+  background-color: #C80B78;
+}
+table tr {
+  color: #350320;
+  background-color: lightgray;
+  padding: 8px;
+  border: 1px solid #f9c7e4;
+  font-family: "Courier New", Courier, monospace;
+}
+
+#count {
+  text-align: center;
+}
+
+.row {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container:last-child {
+  border-bottom-color: #C80B78;
+  border-bottom-style: solid;
+  border-bottom-width: medium;
+}
+
+ul, li, ol {
+  font-size: medium;
+  color: #350320;
+  margin-right: 60px;
+  align-items: left;
+  color: #C80B78;
+}
+
+.list-group-item {
+  margin-right: 60px;
+  padding-right: 30px;
+  align-items: left;
+  font-family: "Courier New", Courier, monospace;
+  color: #C80B78;
+}
+
+.panel {
+  margin-top: 20pt;
+  margin-left: 20pt;
+  margin-right: 20pt;
+}
+
+th, td {
+  font-size: 14pt;
+}
+
+td {
+  padding-right: 40pt;
+}
+
+tr:nth-child(odd) {
+  background-color: lightgrey;
+}
+
+h2 + p {
+  border-top-color: #C80B78;
+  border-top-width: medium;
+  border-top-style: solid;
+}
+
+h1 + p {
+  border-top-color: #C80B78;
+  border-top-width: medium;
+  border-top-style: solid;
+}
+
+/*# sourceMappingURL=project1_1.css.map */

@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<body>
+    <div>
+        {% if READER == None % }
+            <h1 class=maintext>Login to search books</h1>
+        { % elif %}
+            <h1 class=maintext> Hello, {{ READER }}</h1>
+        {% endif %}
+    </div>
+</body>
+{% endblock %}

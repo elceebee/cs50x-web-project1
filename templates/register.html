@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+<div class="maintext">
+<h1>Register for the book club</h1>
+<p></p>
+    <form action="/register" method="post" class="col-md-6 form-group">
+        <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/><br>
+        <input class="form-control" name="password" placeholder="Password" type="password"/><br>
+        <input class="form-control" name="confirmpassword" placeholder="Confirm Password" type="password"/><br>
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+    <div>
+        {% if APOLOGY == None %}
+            <p></p>
+        {% elif APOLOGY == "nouserpass" %}
+            <p class="bg-danger">You forgot to enter a username and password</p>
+        {% elif APOLOGY == "noconfirm" %}
+            <p class="bg-danger">Your password doesn't match the confirmation</p>
+        {% elif APOLOGY  == "inuse" %}
+            <p class="bg-danger">That username is not available</p>
+        {% endif %}
+        </p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+<div class="maintext">
+<h1>Login to search and review books</h1>
+<p></p>
+</div>
+
+    <form class="col-md-6 form-group" action="/login" method="post">
+        <div>
+            <input type="text" class="form-control" placeholder="Username" name="username"><br>
+            <input type="password" class="form-control" placeholder="Password" name="password"><br>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+    </form>
+
+    <div class="maintext col-md-6"id="login_errors">
+        {% if APOLOGY == None %}
+            <p></p>
+        {% elif APOLOGY == "nousername" %}
+            <p class="bg-danger">You forgot to enter a username</p>
+        {% elif APOLOGY == "nopassword" %}
+            <p class="bg-danger">You forgot to enter your password</p>
+        {% elif APOLOGY  == "nosuch" %}
+            <p class="bg-danger">Incorrect username or password</p>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

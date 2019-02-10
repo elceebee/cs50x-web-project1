@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Reviews
+{% endblock %}
+
+{% block main %}
+<div class="maintext" id="clubreviews">
+    <h1>Book info</h1>
+    <p></p>
+    <table>
+        <tr>
+            <td>Title</td>
+            <td><i>{{ TITLE }}</i></td>
+        </tr>
+        <tr>
+            <td>Author</td>
+            <td>{{ AUTHOR }}</td>
+        </tr>
+        <tr>
+            <td>Publication year</td>
+            <td>{{ YEAR }}</td>
+        </tr>
+        <tr>
+            <td>isbn</td>
+            <td>{{ ISBN }}</td>
+        </tr>
+    </table>
+    <br>
+    <h1>Reviews</h1>
+    {% if REVIEWS == "Nothing" %}
+        <p> Be the first in the club to review <i>{{ TITLE }}</i></p>
+    {% else %}
+        <p>This is what your fellow club members think of <i>{{ TITLE }}</i></p>
+        <table>
+            <tr>
+                <th>Review</th>
+                <th>Stars</th>
+            </tr>
+            {% for review in REVIEWS %}
+            <tr>
+                {% for item in review %}
+                    <td>{{ item }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+    {% endif %}
+    </table>
+</div>
+{% if GOODREADSERR == "no" %}
+<div class="maintext" id="goodreadsreviews">
+    <p id="count">Reviewers at <a href="www.goodreads.com">www.goodreads.com</a> give {{ TITLE }}<br>
+        {{ AVE_COUNT }} Stars<br>
+    (based on {{ RATINGS_COUNT }} reviews)<br>
+    </p>
+ </div>
+{% else %}
+    <br>
+{% endif %}
+
+<div class="maintext">
+    {% if REVIEWED == True %}
+    <p></p>
+    <h1>You've already reviewed this book</h1>
+</div>
+<div class="maintext">
+    {% else %}
+    <h1>Write a review!</h1>
+        <p></p>
+</div>
+    <div class="maintext form-group"> 
+        <form action="/reviews" method="post">
+            <div class="maintext form-group">  
+            <label>Star rating for <i>{{ TITLE }}</i></label><br>
+            <input type="hidden" name="bookid" value="{{ BOOKID }}">
+            <label class="radio-inline">
+                <input type="radio" name="reviewstar" value="1" required> 1 Star 
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="reviewstar"  value="2" required> 2 Stars
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="reviewstar" value="3" required> 3 Stars
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="reviewstar" value="4" required> 4 Stars
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="reviewstar" value="5" required> 5 Stars
+            </label>
+            </div>
+            <div class="maintext form-group">   
+                <label>Tell us why you gave it that rating</label>
+                <textarea class="form-control" name="reviewtext" rows="15"></textarea>
+                <button class="btn btn-primary" type="submit">Submit Review</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+{% endblock %}
