@@ -2,6 +2,7 @@
 
 Web Programming with Python and JavaScript
 applications.py defines functions as discussed below. The relevant .html pages are defined in the descriptions of the routes: 
+
 /: If logged in, the user is directed to the search page (search.html). If not, the user is directed, via search, the login page (login.html)
 /register (register.html) User gets to this route by clicking on 'register' in the navbar. They register here. The password hash is generated with werkzeug.security (we used this in a CS50 project). The code does not allow users to register with a previously used ID. A message to this effect is diplayed on the screen if a user tries. Messages are generated for the user if they do not input a username,or if they don't put the same thing in the password and confirmation input boxes. 
 /login: Users login with username and password. Password hashes are checked with werkzeug security.
