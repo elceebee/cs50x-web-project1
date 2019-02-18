@@ -8,8 +8,6 @@
 <div class="maintext">
 <h1>Login to search and review books</h1>
 <p></p>
-</div>
-
     <form class="col-md-6 form-group" action="/login" method="post">
         <div>
             <input type="text" class="form-control" placeholder="Username" name="username"><br>
@@ -18,7 +16,7 @@
         </div>
     </form>
 
-    <div class="maintext col-md-6"id="login_errors">
+    <div class="maintext col-md-6" id="login_errors">
         {% if APOLOGY == None %}
             <p></p>
         {% elif APOLOGY == "nousername" %}
@@ -30,5 +28,5 @@
         {% endif %}
     </div>
 
-
+</div>
 {% endblock %}
