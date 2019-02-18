@@ -9,12 +9,14 @@
 <h1>Register for the book club</h1>
 <p></p>
     <form action="/register" method="post" class="col-md-6 form-group">
-        <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/><br>
-        <input class="form-control" name="password" placeholder="Password" type="password"/><br>
-        <input class="form-control" name="confirmpassword" placeholder="Confirm Password" type="password"/><br>
-        <button class="btn btn-primary" type="submit">Register</button>
+        <div>
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text"/><br>
+            <input class="form-control" name="password" placeholder="Password" type="password"/><br>
+            <input class="form-control" name="confirmpassword" placeholder="Confirm Password" type="password"/><br>
+            <button class="btn btn-primary" type="submit">Register</button>
+        </div>
     </form>
-    <div>
+    <div class="maintext col-md-6">
         {% if APOLOGY == None %}
             <p></p>
         {% elif APOLOGY == "nouserpass" %}
