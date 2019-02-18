@@ -25,12 +25,9 @@ db = scoped_session(sessionmaker(bind=engine))
 
 
 @app.route("/")
-@login_required
 def index():
     
-    # If logged in, the user is directed to the search page
-    # The search page deafults to login if the user is not logged in
-    return render_template("search.html")
+    return render_template("index.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -114,7 +111,7 @@ def login():
         session["userID"] = usernameRow["id"]
 
         # Redirect user to home page
-        return redirect("/")
+        return redirect("/search")
     
     # User reached route via GET
     else:
@@ -127,7 +124,7 @@ def logout():
     session.clear()
 
     # Redirect user to login form
-    return redirect("/login")
+    return redirect("/")
 
 
 @app.route("/search", methods = ["GET", "POST"])
