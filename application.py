@@ -266,9 +266,18 @@ def review_book_info(isbn):
     reviewinfo = db.execute("SELECT avg(review_star) AS average_score, count(review_star) AS review_count FROM reviews WHERE book_id=:book_id GROUP BY book_id",
         {"book_id": bookinfo.id}).fetchone()
 
-    return jsonify({"title": bookinfo.title, 
+    if reviewinfo == None:
+        return jsonify({"title": bookinfo.title, 
         "author":bookinfo.author, 
         "year": bookinfo.year,
         "isbn": bookinfo.isbn, 
-        "review_count": reviewinfo.review_count, 
-        "average_score": float(reviewinfo.average_score)})
+        "review_count": None, 
+        "average_score": None})
+
+    else:
+        return jsonify({"title": bookinfo.title, 
+            "author":bookinfo.author, 
+            "year": bookinfo.year,
+            "isbn": bookinfo.isbn, 
+            "review_count": reviewinfo.review_count, 
+            "average_score": float(reviewinfo.average_score)})
