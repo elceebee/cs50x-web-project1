@@ -13,8 +13,8 @@ The project was part of CS50W: Web Programming with Python and JavaScript. For m
 - Python
 - Flask
 - Werkzeug
-- Jinja
-- PostgresSQL
+- Jinja2
+- SQLAlchemy, PostgreSQL
 - Heroku
 - Sass
 - Bootstrap
@@ -22,13 +22,13 @@ The project was part of CS50W: Web Programming with Python and JavaScript. For m
 
 ## Approach
 
-This application is rendered serverside. The client side logic is embedded into the HTML using Jinja (see here for an example [templates/reviews.html#L31](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/templates/reviews.html#L31))
+This application is rendered server-side. The client side logic is embedded into the HTML using Jinja2 See here for an example [templates/reviews.html#L31](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/templates/reviews.html#L31)
 
 ### API from www.goodreads.com
 
 I make a request to an API available through www.goodreads.com to see render reviews information. See here for the code: [application.py#L228](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/application.py#L228)
 
-### Database, PostrgresSQL
+### Database, PostrgreSQL
 
 Book data: The course leader provided a csv file with book information. Here is the file for importing the data into the SQL database: [import.py#L1](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/import.py#L1)
 
