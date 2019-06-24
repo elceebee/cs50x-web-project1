@@ -1,11 +1,39 @@
-# Project 1
+# BookClub
 
-Web Programming with Python and JavaScript
-applications.py defines functions as discussed below. The relevant .html pages are defined in the descriptions of the routes:
-"/": If logged in, the user is directed to the search page (search.html). If not, the user is directed, via search, to the login page (login.html)
-"/register" (register.html) User gets to this route by clicking on 'register' in the navbar. They register here. The password hash is generated with werkzeug.security (we used this in a CS50 project). The code does not allow users to register with a previously used ID. A message to this effect is diplayed on the screen if a user tries. Messages are generated for the user if they do not input a username,or if they don't put the same thing in the password and confirmation input boxes.
-"/login": Users login with username and password. Password hashes are checked with werkzeug security.
-"/logout": clears the session user information (from flask_session) and redirects to login.
-"/search" The search function first looks for exact matches, though not case sensitive. If something is found, the results of this search are returned. If nothing is found, the search is expanded to find anything where the search term exists (eg, the search "robot" won't return an exact match, but will return several titles that containt the word robot). The search term is converted to all lowercase, as are the results from the SQL query to which it is being compared. This way, the search is not case sensitive. After a search is conducted, users are directed to a results page. Another search box is on this page so users can search again here if they don't see the book they anticipated. If there are no results, a message to that effect is rendered on the page.
-"/reviews" If the user clicks on one of the search results, they are redirected to this page which includes book info, reviews from this site, and data from goodreviews (using the Goodreads API). In application.py code, I check whether or not the user has already submitted a review for the book. If they have NOT, they will see a form for submitting a review. If they have submitted a review, they won't see the form. After submitting the form, they receive a 'Thank you' message. (If the user navigates directly to this page, they will be redirected to the search page. )
-"api/<string:isbn>": Here we need to combine information from two tables into a single json object. First I use the isbn provided by the user to get the book information, including the primary key (id). I use the id to retrieve the review data. Within this search, I use two mathematical functions (avg and cout) to get the data I need for my json object. Finally. I combine the required data into a single json object using jsonify.
+This application is a platform for users to review and read reviews of books. It uses a publically available API from <https://www.goodreads.com/api> so users are presented with star ratings and review data from this external source. The application also allows users to query for book details via my own API.
+
+The project was part of CS50W: Web Programming with Python and JavaScript. For more information about this course, see: <https://www.edx.org/course/cs50s-web-programming-with-python-and-javascript>
+
+## The brief
+
+"In this project, you’ll build a book review website. Users will be able to register for your website and then log in using their username and password. Once they log in, they will be able to search for books, leave reviews for individual books, and see the reviews made by other people. You’ll also use the a third-party API by Goodreads, another book review website, to pull in ratings from a broader audience. Finally, users will be able to query for book details and book reviews programmatically via your website’s API."
+
+## Technologies used
+
+- Python
+- Flask
+- Werkzeug
+- Jinja
+- PostgresSQL
+- Heroku
+- Sass
+- Bootstrap
+- External API from (<https://www.goodreads.com/api>)
+
+## Approach
+
+This application is rendered serverside. The client side logic is embedded into the HTML using Jinja (see here for an example [templates/reviews.html#L31](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/templates/reviews.html#L31))
+
+### API from www.goodreads.com
+
+I make a request to an API available through www.goodreads.com to see render reviews information. See here for the code: [application.py#L228](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/application.py#L228)
+
+### Database, PostrgresSQL
+
+Book data: The course leader provided a csv file with book information. Here is the file for importing the data into the SQL database: [import.py#L1](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/import.py#L1)
+
+When a user adds a review, it is added to the database: [application.py#L183](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/application.py#L183)
+
+### Passwords and registered users
+
+When users register, their user credentials are stored in the database and the passwords are encrypted using Werkzeug. See [application.py#L55](https://github.com/elceebee/cs50x-web-project1/blob/cd9fbd67fb08949097e67668957656bd38a9d59e/application.py#L55).
