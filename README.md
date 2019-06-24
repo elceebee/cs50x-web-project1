@@ -1,4 +1,4 @@
-# BookClub
+# BookClub Project
 
 This application is a platform for users to review and read reviews of books. It uses a publically available API from <https://www.goodreads.com/api> so users are presented with star ratings and review data from this external source. The application also allows users to query for book details via my own API.
 
